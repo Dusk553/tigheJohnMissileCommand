@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject shotLocation;
 
     // Update is called once per frame
-    public void Update()
+   /* public void Update()
     {
         Vector2 checkBarrel = Camera.main.ScreenToWorldPoint(new Vector2(Input.checkBarrel.x, Input.checkBarrel.y));
         Vector2 Cp = new Vector2(transform.position.x, transform.position.y);
@@ -24,5 +24,5 @@ public class PlayerScript : MonoBehaviour
         {
             Instantiate(bullet, new Vector2(shotLocation.transform.position.x, shotLocation.transform.position.y), Quaternion.identity);
         }
-    }
+    }*/
 }
