@@ -6,7 +6,7 @@ public class BorderCode : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemey")
+        if(collision.gameObject.tag == "Enemey")
         {
             Destroy(gameObject);
         }

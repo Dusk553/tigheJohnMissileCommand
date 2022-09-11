@@ -21,5 +21,6 @@ public class BadBulletSpawn : MonoBehaviour
             Instantiate(badBullet, bulletSpawn[index].transform.position, Quaternion.identity);
             timer = 3;
         }
+
     }
 }
