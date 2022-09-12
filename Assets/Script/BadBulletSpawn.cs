@@ -5,7 +5,6 @@ using UnityEngine;
 public class BadBulletSpawn : MonoBehaviour
 {
 
-    public GameObject[] bulletSpawn;
     public GameObject badBullet;
     private float timer = 1;
     private int index;
@@ -17,8 +16,7 @@ public class BadBulletSpawn : MonoBehaviour
 
         if(timer <= 0)
         {
-            index = Random.Range(0, 3);
-            Instantiate(badBullet, bulletSpawn[index].transform.position, Quaternion.identity);
+            Instantiate(badBullet, new Vector3(Random.Range(-9, 9), 5.35f, 0), Quaternion.identity);
             timer = 3;
         }
 
