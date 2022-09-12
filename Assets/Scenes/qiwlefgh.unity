@@ -611,12 +611,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   houses:
-  - {x: -7.89, y: -3.5, z: 0}
-  - {x: -4.54, y: -3.5, z: 0}
-  - {x: -2.05, y: -3.5, z: 0}
-  - {x: 1.9847, y: -3.5, z: 0}
-  - {x: 4.6853, y: -3.5, z: 0}
-  - {x: 6.8986, y: -3.5, z: 0}
+  - {fileID: 1417499118}
+  - {fileID: 342659081}
+  - {fileID: 1836993478}
+  - {fileID: 234705306}
+  - {fileID: 1907578836}
+  - {fileID: 1405441501}
   destroyedCounter: 0
 --- !u!1 &946773924
 GameObject:
