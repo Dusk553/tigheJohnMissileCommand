@@ -17,7 +17,7 @@ public class BadBulletSpawn : MonoBehaviour
 
         if(timer <= 0)
         {
-            index = Random.Range(0, 2);
+            index = Random.Range(0, 3);
             Instantiate(badBullet, bulletSpawn[index].transform.position, Quaternion.identity);
             timer = 3;
         }

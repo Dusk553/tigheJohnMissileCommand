@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class ControllerScript : MonoBehaviour
 {
-    public List<GameObject> houses;
-    public static bool shootAllowed;
+    public List<Vector3> houses;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
+        if(buildings[0] == null && buildings[1] == null && buildings[2] == null && buildings[3] == null && buildings[4] == null && buildings[5] == null)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

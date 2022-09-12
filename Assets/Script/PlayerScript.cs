@@ -7,6 +7,8 @@ public class PlayerScript : MonoBehaviour
     public GameObject bullet;
     private Rigidbody2D rb;
     public GameObject shotLocation;
+    public bool canFire;
+    float timer = 1;
 
     // Update is called once per frame
     public void Update()
@@ -19,9 +21,19 @@ public class PlayerScript : MonoBehaviour
         Quaternion angleAxis = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, angleAxis, Time.deltaTime * 50);
 
-        if (Input.GetMouseButtonDown(0))
+        timer =- 1 * Time.deltaTime;
+
+        if (timer <= 0 && canFire != true)
         {
-            Instantiate(bullet, new Vector2(shotLocation.transform.position.x, shotLocation.transform.position.y), Quaternion.identity);
+            canFire = true;
         }
+
+        if (Input.GetMouseButtonDown(0) && canFire == true)
+        {
+            canFire = false;
+            Instantiate(bullet, new Vector2(shotLocation.transform.position.x, shotLocation.transform.position.y), Quaternion.identity);
+            timer = 1;
+        }
+
     }
 }

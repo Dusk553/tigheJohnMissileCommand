@@ -9,12 +9,18 @@ public class BadBulletBehavour : MonoBehaviour
     private Rigidbody2D rb;
     private float speed = 2;
     public Transform bulletTransform;
+    private Vector3 target;
 
     // Start is called before the first frame update
     void Start()
     {
+        cS = FindObjectOfType<ControllerScript>();
+        rb = GetComponent<Rigidbody2D>();
         avalibleHouses = Random.Range(0, cS.houses.Count);
-        Vector2 bulletDirection = cS.houses[avalibleHouses].transform.position - bulletTransform.position;
+        Vector3 bulletDirection = cS.houses[avalibleHouses] - bulletTransform.position;
+
+        target = new Vector3(cS.houses[avalibleHouses].x, cS.houses[avalibleHouses].y, 0);
+
         float enemyAngle = Mathf.Atan2(bulletDirection.y, bulletDirection.x) * Mathf.Rad2Deg - 90;
         rb.rotation = enemyAngle;
         
@@ -23,13 +29,20 @@ public class BadBulletBehavour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, cS.houses[avalibleHouses].transform.position, step);
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        if (transform.position == target)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "House")
+        {
+            Destroy(gameObject);
+        }
+        if(collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
         }
