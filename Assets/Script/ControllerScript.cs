@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ControllerScript : MonoBehaviour
 {
-    public List<Vector3> houses;
+    public GameObject[] houses;
     public int destroyedCounter;
     private void Update()
     {

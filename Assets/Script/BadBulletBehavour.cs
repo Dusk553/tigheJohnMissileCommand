@@ -10,17 +10,61 @@ public class BadBulletBehavour : MonoBehaviour
     private float speed = 2;
     public Transform bulletTransform;
     private Vector3 target;
+    bool isNull = false; 
 
     // Start is called before the first frame update
     void Start()
     {
         cS = FindObjectOfType<ControllerScript>();
         rb = GetComponent<Rigidbody2D>();
-        avalibleHouses = Random.Range(0, cS.houses.Count);
-        Vector3 bulletDirection = cS.houses[avalibleHouses] - bulletTransform.position;
-
-        target = new Vector3(cS.houses[avalibleHouses].x, cS.houses[avalibleHouses].y, 0);
-
+        avalibleHouses = Random.Range(0, cS.houses.Length);
+        while (cS.houses[avalibleHouses] == null)
+        {
+            avalibleHouses = Random.Range(0, cS.houses.Length);
+        }
+        if (cS.houses[0] != null)
+        {
+            if (avalibleHouses == 0)
+            {
+                target = new Vector3(-7.89f, -3.5f, 0);
+            }
+        }
+        if (cS.houses[1] != null)
+        {
+            if (avalibleHouses == 1)
+            {
+                target = new Vector3(-4.54f, -3.5f, 0);
+            }
+        }
+        if (cS.houses[2] != null)
+        {
+            if (avalibleHouses == 2)
+            {
+                target = new Vector3(-2.05f, -3.5f, 0);
+            }
+        }
+        if (cS.houses[3] != null)
+        {
+            if (avalibleHouses == 3)
+            {
+                target = new Vector3(1.9847f, -3.5f, 0);
+            }
+        }
+        if (cS.houses[4] != null)
+        {
+            if (avalibleHouses == 4)
+            {
+                target = new Vector3(4.6853f, -3.5f, 0);
+            }
+        }
+        if (cS.houses[5] != null)
+        {
+            if (avalibleHouses == 5)
+            {
+                target = new Vector3(6.8986f, -3.5f, 0);
+            }
+        }
+        Vector3 bulletDirection = target - bulletTransform.position;
         float enemyAngle = Mathf.Atan2(bulletDirection.y, bulletDirection.x) * Mathf.Rad2Deg - 90;
         rb.rotation = enemyAngle;
         
